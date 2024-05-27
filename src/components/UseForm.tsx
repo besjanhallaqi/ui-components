@@ -28,7 +28,7 @@ export default function UseFormComponent({
     if (!errors[input.key]) {
       return;
     }
-    if (input.type === "file") {
+    if (input.type === Types.FILE) {
       return (
         <p className={`text-red-700 font-medium ${input.classNames?.error}`}>
           {(errors as any)[input.key][0].message}

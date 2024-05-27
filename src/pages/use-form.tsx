@@ -12,27 +12,27 @@ const isValidDate = (dateString: string) => {
 };
 
 const schema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-  description: z.string().min(1, { message: "Description is required" }),
+  text: z.string().min(1, { message: "Text is required" }),
+  textarea: z.string().min(1, { message: "Textarea is required" }),
   email: z
     .string()
     .min(1, { message: "E-mail is required" })
     .email("Invalid e-mail"),
-  age: z
+  number: z
     .number({
-      invalid_type_error: "Age is required and must be a number",
+      invalid_type_error: "Number is required and must be a number",
     })
     .min(0)
     .max(150),
-  isAdmin: z.boolean(),
-  hobbies: z
-    .array(z.enum(["football", "e-gaming", "films"]))
-    .min(1, { message: "Hobbies is required" }),
-  experience: z.enum(["less1", "1to3", "3to5", "5more"], {
-    message: "Experience is required",
+  boolean: z.boolean(),
+  checkbox: z
+    .array(z.enum(["checkbox1", "checkbox2", "checkbox3"]))
+    .min(1, { message: "Checkbox is required" }),
+  radio: z.enum(["radio1", "radio2", "radio3"], {
+    message: "Radio is required",
   }),
   select: z.string().min(1, { message: "Select is required" }),
-  birthday: z.string().refine(isValidDate, {
+  date: z.string().refine(isValidDate, {
     message: "Invalid date",
   }),
   file: z.object({
@@ -53,7 +53,7 @@ export default function UseForm() {
       label: "Textarea",
       rows: 3,
     },
-    { type: Types.EMAIL, key: "email", label: "Email" },
+    { type: Types.EMAIL, key: "email", label: "E-mail" },
     { type: Types.NUMBER, key: "number", label: "Number" },
     { type: Types.BOOLEAN, key: "boolean", label: "Boolean" },
     {
@@ -61,9 +61,9 @@ export default function UseForm() {
       key: "checkbox",
       label: "Checkbox",
       options: [
-        { key: "option1", label: "Option 1" },
-        { key: "option2", label: "Option 2" },
-        { key: "option3", label: "Option 3" },
+        { key: "checkbox1", label: "Checkbox 1" },
+        { key: "checkbox2", label: "Checkbox 2" },
+        { key: "checkbox3", label: "Checkbox 3" },
       ],
     },
     {
@@ -71,9 +71,9 @@ export default function UseForm() {
       key: "radio",
       label: "Radio",
       options: [
-        { key: "option1", label: "Option 1" },
-        { key: "option2", label: "Option 2" },
-        { key: "option3", label: "Option 3" },
+        { key: "radio1", label: "Radio 1" },
+        { key: "radio2", label: "Radio 2" },
+        { key: "radio3", label: "Radio 3" },
       ],
     },
     {
@@ -82,9 +82,9 @@ export default function UseForm() {
       label: "Select",
       options: [
         { key: "", label: "Choose option" },
-        { key: "option1", label: "Option 1" },
-        { key: "option2", label: "Option 2" },
-        { key: "option3", label: "Option 3" },
+        { key: "select1", label: "Select 1" },
+        { key: "select2", label: "Select 2" },
+        { key: "select3", label: "Select 3" },
       ],
     },
     { type: Types.DATE, key: "date", label: "Date" },
