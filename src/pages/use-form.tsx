@@ -24,6 +24,7 @@ const schema = z.object({
     })
     .min(0)
     .max(150),
+  isAdmin: z.boolean(),
   hobbies: z
     .array(z.enum(["football", "e-gaming", "films"]))
     .min(1, { message: "Hobbies is required" }),
@@ -43,36 +44,36 @@ export default function UseForm() {
   const formFields: FormField[] = [
     {
       type: Types.TEXT,
-      key: "name",
-      label: "Name",
+      key: "text",
+      label: "Text",
     },
     {
       type: Types.TEXTAREA,
-      key: "description",
-      label: "Description",
+      key: "textarea",
+      label: "Textarea",
       rows: 3,
     },
     { type: Types.EMAIL, key: "email", label: "Email" },
-    { type: Types.NUMBER, key: "age", label: "Age" },
+    { type: Types.NUMBER, key: "number", label: "Number" },
+    { type: Types.BOOLEAN, key: "boolean", label: "Boolean" },
     {
       type: Types.CHECKBOX,
-      key: "hobbies",
-      label: "Hobbies",
+      key: "checkbox",
+      label: "Checkbox",
       options: [
-        { key: "football", label: "Football" },
-        { key: "e-gaming", label: "E-Gaming" },
-        { key: "films", label: "Films" },
+        { key: "option1", label: "Option 1" },
+        { key: "option2", label: "Option 2" },
+        { key: "option3", label: "Option 3" },
       ],
     },
     {
       type: Types.RADIO,
-      key: "experience",
-      label: "Experience",
+      key: "radio",
+      label: "Radio",
       options: [
-        { key: "less1", label: "0-1 year" },
-        { key: "1to3", label: "1-3 years" },
-        { key: "3to5", label: "3-5 years" },
-        { key: "5more", label: "More than 5 years" },
+        { key: "option1", label: "Option 1" },
+        { key: "option2", label: "Option 2" },
+        { key: "option3", label: "Option 3" },
       ],
     },
     {
@@ -83,9 +84,10 @@ export default function UseForm() {
         { key: "", label: "Choose option" },
         { key: "option1", label: "Option 1" },
         { key: "option2", label: "Option 2" },
+        { key: "option3", label: "Option 3" },
       ],
     },
-    { type: Types.DATE, key: "birthday", label: "Birthday" },
+    { type: Types.DATE, key: "date", label: "Date" },
     { type: Types.FILE, key: "file", label: "File" },
   ];
 

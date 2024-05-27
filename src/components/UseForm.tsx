@@ -1,3 +1,4 @@
+import { Types } from "@/enum/Types";
 import { FormField } from "@/model/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -42,7 +43,26 @@ export default function UseFormComponent({
   };
 
   const returnInput = (input: FormField) => {
-    if (input.type === "checkbox" || input.type === "radio") {
+    if (input.type === Types.BOOLEAN) {
+      return (
+        <div
+          key={input.key}
+          className={`flex flex-row items-center gap-2 ${input.classNames?.base}`}
+        >
+          <input
+            className={`w-5 h-5 ${input.classNames?.input}`}
+            type={Types.CHECKBOX}
+            id={input.key}
+            {...register(input.key)}
+          />
+          <label className={input.classNames?.label} htmlFor={input.key}>
+            {input.label}
+          </label>
+        </div>
+      );
+    }
+
+    if (input.type === Types.CHECKBOX || input.type === Types.RADIO) {
       return (
         <div
           className={`flex flex-col ${input.classNames?.base}`}
@@ -75,7 +95,7 @@ export default function UseFormComponent({
       );
     }
 
-    if (input.type === "select") {
+    if (input.type === Types.SELECT) {
       return (
         <div
           className={`flex flex-col ${input.classNames?.base}`}
@@ -104,7 +124,7 @@ export default function UseFormComponent({
       );
     }
 
-    if (input.type === "textarea") {
+    if (input.type === Types.TEXTAREA) {
       return (
         <div
           className={`flex flex-col ${input.classNames?.base}`}
@@ -141,7 +161,7 @@ export default function UseFormComponent({
           type={input.type}
           id={input.key}
           {...register(input.key, {
-            valueAsNumber: input.type === "number" ? true : false,
+            valueAsNumber: input.type === Types.NUMBER ? true : false,
           })}
         />
         {renderError(input)}

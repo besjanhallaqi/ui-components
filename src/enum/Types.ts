@@ -2,6 +2,7 @@ export enum Types {
     TEXT = "text",
     TEXTAREA = "textarea",
     EMAIL = "email",
+    BOOLEAN = "boolean",
     NUMBER = "number",
     CHECKBOX = "checkbox",
     RADIO = "radio",
