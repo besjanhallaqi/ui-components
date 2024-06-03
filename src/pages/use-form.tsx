@@ -51,7 +51,9 @@ export default function UseForm() {
       type: Types.TEXTAREA,
       key: "textarea",
       label: "Textarea",
-      rows: 3,
+      properties: {
+        rows: "3",
+      },
     },
     { type: Types.EMAIL, key: "email", label: "E-mail" },
     { type: Types.NUMBER, key: "number", label: "Number" },
@@ -61,9 +63,9 @@ export default function UseForm() {
       key: "checkbox",
       label: "Checkbox",
       options: [
-        { key: "checkbox1", label: "Checkbox 1" },
-        { key: "checkbox2", label: "Checkbox 2" },
-        { key: "checkbox3", label: "Checkbox 3" },
+        { value: "checkbox1", label: "Checkbox 1" },
+        { value: "checkbox2", label: "Checkbox 2" },
+        { value: "checkbox3", label: "Checkbox 3" },
       ],
     },
     {
@@ -71,9 +73,9 @@ export default function UseForm() {
       key: "radio",
       label: "Radio",
       options: [
-        { key: "radio1", label: "Radio 1" },
-        { key: "radio2", label: "Radio 2" },
-        { key: "radio3", label: "Radio 3" },
+        { value: "radio1", label: "Radio 1" },
+        { value: "radio2", label: "Radio 2" },
+        { value: "radio3", label: "Radio 3" },
       ],
     },
     {
@@ -81,10 +83,10 @@ export default function UseForm() {
       key: "select",
       label: "Select",
       options: [
-        { key: "", label: "Choose option" },
-        { key: "select1", label: "Select 1" },
-        { key: "select2", label: "Select 2" },
-        { key: "select3", label: "Select 3" },
+        { value: "", label: "Choose option" },
+        { value: "select1", label: "Select 1" },
+        { value: "select2", label: "Select 2" },
+        { value: "select3", label: "Select 3" },
       ],
     },
     { type: Types.DATE, key: "date", label: "Date" },
@@ -100,7 +102,6 @@ export default function UseForm() {
       className={`flex min-h-screen bg-white flex-col items-center p-24 ${inter.className}`}
     >
       <div className="w-[400px]">
-        <h1>Dynamic Form</h1>
         <UseFormComponent
           onSubmit={submitFormFunction}
           formFields={formFields}

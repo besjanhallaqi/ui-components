@@ -4,7 +4,7 @@ export interface FormField {
     type: Types;
     key: string;
     label: string;
-    rows?: number;
+    properties?:any;
     options?: Options[];
     classNames?: InputClassNames;
 }

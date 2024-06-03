@@ -1,5 +1,6 @@
 interface Options {
-    key: string;
+    value: string;
     label: string;
+    properties?:any;
     classNames?: InputClassNames;
 }
