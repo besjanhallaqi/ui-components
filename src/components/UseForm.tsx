@@ -11,15 +11,17 @@ interface FormProps {
   inputsBefore?: ReactElement | ReactElement[];
   inputsAfter?: ReactElement | ReactElement[];
   classNames?: FormClassNames;
+  properties?: { form: any; button: any };
 }
 
 export default function UseFormComponent({
   formFields,
   onSubmit,
   schema,
-  classNames,
   inputsBefore,
   inputsAfter,
+  classNames,
+  properties,
 }: FormProps) {
   const {
     register,
@@ -195,8 +197,9 @@ export default function UseFormComponent({
     <form
       className={`w-full ${classNames?.form}`}
       onSubmit={handleSubmit(onSubmit)}
+      {...properties?.form}
     >
-      <div className={`flex flex-col gap-2 py-4 ${classNames?.inputFields}`}>
+      <div className={`flex flex-col gap-2 ${classNames?.inputFields}`}>
         {inputsBefore}
         {formFields.map((field) => returnInput(field))}
         {inputsAfter}
@@ -204,6 +207,7 @@ export default function UseFormComponent({
       <button
         className={`w-min px-4 py-2 rounded-md border-2 border-gray-200 hover:border-gray-400 transition-all duration-100 ${classNames?.button}`}
         type="submit"
+        {...properties?.button}
       >
         Submit
       </button>

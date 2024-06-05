@@ -101,7 +101,7 @@ export default function UseForm() {
     <div
       className={`flex min-h-screen bg-white flex-col items-center p-24 ${inter.className}`}
     >
-      <div className="w-[400px]">
+      <div className="w-[400px] bg-red-400">
         <UseFormComponent
           onSubmit={submitFormFunction}
           formFields={formFields}
