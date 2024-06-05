@@ -40,7 +40,7 @@ const schema = z.object({
   }),
 });
 
-export default function UseForm() {
+export default function Form() {
   const formFields: FormField[] = [
     {
       type: Types.TEXT,
@@ -101,7 +101,7 @@ export default function UseForm() {
     <div
       className={`flex min-h-screen bg-white flex-col items-center p-24 ${inter.className}`}
     >
-      <div className="w-[400px] bg-red-400">
+      <div className="w-[400px]">
         <UseFormComponent
           onSubmit={submitFormFunction}
           formFields={formFields}

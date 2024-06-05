@@ -8,8 +8,10 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      <ul>
-        <Link href="/use-form">Form</Link>
+      <ul className="flex flex-col items-center gap-4 text-xl">
+        <Link href="/layout">Layout</Link>
+        <Link href="/form">Form</Link>
+        <Link href="/table">Table</Link>
       </ul>
     </main>
   );
