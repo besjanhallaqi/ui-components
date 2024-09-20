@@ -180,11 +180,13 @@ export default function UseFormComponent({
         <input
           className={`px-3 py-2 border-2 border-gray-200 focus:border-gray-400 outline-none transition-all duration-100 rounded-md ${
             errors[input.key] && "border-red-700 focus:border-red-700"
-          } ${input.classNames?.input}`}
+          } ${input.type === Types.RANGE && "px-0 border-0"} ${
+            input.classNames?.input
+          }`}
           type={input.type}
           id={input.key}
           {...register(input.key, {
-            valueAsNumber: input.type === Types.NUMBER ? true : false,
+            valueAsNumber: [Types.NUMBER, Types.RANGE].includes(input.type),
           })}
           {...input.properties}
         />

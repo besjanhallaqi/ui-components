@@ -38,6 +38,7 @@ const schema = z.object({
   file: z.object({
     0: z.instanceof(File, { message: "File is required" }),
   }),
+  range: z.number(),
 });
 
 export default function Form() {
@@ -58,6 +59,7 @@ export default function Form() {
     { type: Types.EMAIL, key: "email", label: "E-mail" },
     { type: Types.NUMBER, key: "number", label: "Number" },
     { type: Types.BOOLEAN, key: "boolean", label: "Boolean" },
+    { type: Types.RANGE, key: "range", label: "Range" },
     {
       type: Types.CHECKBOX,
       key: "checkbox",

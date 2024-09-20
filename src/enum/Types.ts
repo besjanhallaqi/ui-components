@@ -10,4 +10,5 @@ export enum Types {
     DATE = "date",
     DATETIME_LOCAL = "datetime-local",
     FILE = "file",
+    RANGE = "range",
 }
